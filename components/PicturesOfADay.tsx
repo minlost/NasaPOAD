@@ -1,4 +1,6 @@
 "use client"
+import React, { useState, useEffect } from "react"
+
 import { log } from "console"
 import Image from "next/image"
 
@@ -22,15 +24,17 @@ type picProps = {
   arr: ImageProps[]
 }
 
-import React, { useState } from "react"
-
 function PicturesOfADay({ arr }: picProps) {
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(null)
+
+  useEffect(() => {
+    setAudio(new Audio("/34723.mp3"))
+  }, [])
   const [active, setActive] = useState(false)
   const [titles, setTitles] = useState<string>()
   const [modUrl, setModUrl] = useState("")
   const [indexImg, setIndexImg] = useState<number>(0)
   const [isPlaying, setIsPlaying] = useState(false)
-  // const [audio] = useState(new Audio("/34723.mp3"))
 
   function handleClick(tit: string) {
     setTitles(tit)
@@ -41,15 +45,15 @@ function PicturesOfADay({ arr }: picProps) {
     setIndexImg(idx)
   }
 
-  // function playMusic() {
-  //   if (!isPlaying) {
-  //     audio.play()
-  //     setIsPlaying(true)
-  //   } else {
-  //     audio.pause()
-  //     setIsPlaying(false)
-  //   }
-  // }
+  function playMusic() {
+    if (!isPlaying) {
+      audio?.play()
+      setIsPlaying(true)
+    } else {
+      audio?.pause()
+      setIsPlaying(false)
+    }
+  }
 
   function handleMove(direction: string) {
     let ixNum = indexImg
@@ -72,14 +76,14 @@ function PicturesOfADay({ arr }: picProps) {
   return (
     <>
       <FaPlay
-        // onClick={() => playMusic()}
+        onClick={() => playMusic()}
         className={`absolute top-[40px] right-[50px] text-[25px] ${
           isPlaying ? "opacity-90" : "opacity-50"
         } text-white cursor-pointer hover:opacity-80`}
       />
 
       <AiOutlinePause
-        // onClick={() => playMusic()}
+        onClick={() => playMusic()}
         className={`absolute top-[35px] right-[15px] text-[35px] ${
           isPlaying ? "opacity-50" : "opacity-90"
         } text-white cursor-pointer hover:opacity-80`}
