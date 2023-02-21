@@ -30,7 +30,7 @@ function PicturesOfADay({ arr }: picProps) {
   const [modUrl, setModUrl] = useState("")
   const [indexImg, setIndexImg] = useState<number>(0)
   const [isPlaying, setIsPlaying] = useState(false)
-  const [audio] = useState(new Audio("/34723.mp3"))
+  const [audio] = useState(new Audio("../34723.mp3"))
 
   function handleClick(tit: string) {
     setTitles(tit)
