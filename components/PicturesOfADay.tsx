@@ -29,7 +29,6 @@ function PicturesOfADay({ arr }: picProps) {
 
   useEffect(() => {
     setAudio(new Audio("/34723.mp3"))
-    console.log("audio useeffected")
   }, [])
 
   const [active, setActive] = useState(false)
@@ -45,6 +44,7 @@ function PicturesOfADay({ arr }: picProps) {
     setActive(true)
     setModUrl(modSrc)
     setIndexImg(idx)
+    window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   function playMusic() {
@@ -135,7 +135,7 @@ function PicturesOfADay({ arr }: picProps) {
               titles === arr.title
                 ? "w-[100%] lg:h-[500px] "
                 : "w-[100%] lg:w-[100%] lg:h-[50px]"
-            } h-[500px] lg:h-[] object-cover ease-in-out duration-[900ms]`}
+            } h-[500px] lg:h-[] object-cover ease-in-out duration-[600ms]`}
             quality={100}
           />
         </div>
@@ -144,13 +144,13 @@ function PicturesOfADay({ arr }: picProps) {
       <div
         className={`bg-black w-screen h-screen z-50 
         absolute top-0 right-0  ${
-          active ? "opacity-50 block" : "opacity-0 hidden"
-        } flex justify-center items-center`}
+          active ? "opacity-50 block" : "hidden"
+        } flex justify-center items-center ease-in-out duration-[1200ms]`}
       />
       <img
         src={`${modUrl}`}
         className={` absolute
-        w-[70%] h-[70%]  bg-black  z-50 top-[20vh] ${
+        w-[70%] h-[70%] sm:w-[100%] sm:h-[100%]  bg-black  z-50 top-[20vh] sm:top-[0] ${
           active ? `block object-contain` : "hidden"
         }`}
       />

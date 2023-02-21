@@ -16,6 +16,7 @@ module.exports = {
 
       screens: {
         lg: { max: "900px" },
+        sm: { max: "750px" },
         // => @media (max-width: 639px) { ... }
       },
     },
