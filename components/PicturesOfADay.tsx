@@ -91,6 +91,16 @@ function PicturesOfADay({ arr }: picProps) {
           isPlaying ? "opacity-50" : "opacity-90"
         } text-white cursor-pointer hover:opacity-80`}
       />
+      <button
+        onClick={() => console.log(isPlaying, audio)}
+        className="w-[100px] h-[100px]"
+      >
+        CLICK to CL
+      </button>
+      <button onClick={() => playMusic()} className="w-[100px] h-[100px]">
+        CLICK to play
+      </button>
+
       {arr.map((arr, index) => (
         <div
           key={index}
