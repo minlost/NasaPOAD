@@ -1,10 +1,17 @@
-import './globals.css'
+import "../app/globals.css"
+import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 
-export default function RootLayout({
-  children,
-}: {
+type LayoutProps = {
   children: React.ReactNode
-}) {
+}
+import { Space_Mono } from "@next/font/google"
+const spaceMono = Space_Mono({
+  weight: "400",
+  subsets: ["latin"],
+})
+
+export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
       {/*
@@ -12,7 +19,21 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      {/* <link rel="preconnect" href="https://stijndv.com" />
+        <link
+          rel="stylesheet"
+          href="https://stijndv.com/fonts/Eudoxus-Sans.css"
+        /> */}
+      {/* </head> */}
+
+      <body className={spaceMono.className}>
+        <div className="bg-gradient-to-r from-blue-400 via-slate-900 to-slate-500 overflow-hidden">
+          <Navbar />
+
+          {children}
+          <Footer />
+        </div>
+      </body>
     </html>
   )
 }
