@@ -9,7 +9,7 @@ function Navbar() {
           <div className="">
             <Link href="/">NASA</Link>
           </div>
-          <ul className="flex space-x-2 ">
+          {/* <ul className="flex space-x-2 ">
             <li>
               <Link href="/">Odkaz 1</Link>
             </li>
@@ -22,7 +22,7 @@ function Navbar() {
             <li>
               <Link href="/">Odkaz 4</Link>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </nav>
     </>
