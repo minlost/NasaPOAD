@@ -29,7 +29,9 @@ function PicturesOfADay({ arr }: picProps) {
 
   useEffect(() => {
     setAudio(new Audio("/34723.mp3"))
+    console.log("audio useeffected")
   }, [])
+
   const [active, setActive] = useState(false)
   const [titles, setTitles] = useState<string>()
   const [modUrl, setModUrl] = useState("")
@@ -46,6 +48,7 @@ function PicturesOfADay({ arr }: picProps) {
   }
 
   function playMusic() {
+    console.log(audio)
     if (!isPlaying) {
       audio?.play()
       setIsPlaying(true)
