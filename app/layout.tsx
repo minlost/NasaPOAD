@@ -26,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps) {
         /> */}
       {/* </head> */}
 
-      <body className={spaceMono.className}>
+      <body className={`${spaceMono.className} `}>
         <div className="bg-gradient-to-r from-blue-400 via-slate-900 to-slate-500 overflow-hidden">
           <Navbar />
 

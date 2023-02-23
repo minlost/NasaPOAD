@@ -41,6 +41,7 @@ function PicturesOfADay({ arr }: picProps) {
     setTitles(tit)
   }
   function handleExpand(modSrc: string, idx: number) {
+    document.documentElement.style.overflow = "hidden"
     setActive(true)
     setModUrl(modSrc)
     setIndexImg(idx)
@@ -56,6 +57,11 @@ function PicturesOfADay({ arr }: picProps) {
       audio?.pause()
       setIsPlaying(false)
     }
+  }
+  function cancelModal(prop: boolean) {
+    document.documentElement.style.overflow = "scroll"
+
+    setActive(prop)
   }
 
   function handleMove(direction: string) {
@@ -170,7 +176,7 @@ function PicturesOfADay({ arr }: picProps) {
       {active && (
         <GiCancel
           className="text-white absolute top-[25%] right-[20%] text-[36px] z-[60] cursor-pointer  opacity-30 hover:opacity-80 ease-in-out duration-[300ms] "
-          onClick={() => setActive(false)}
+          onClick={() => cancelModal(false)}
         />
       )}
     </>

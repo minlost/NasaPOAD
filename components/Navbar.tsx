@@ -5,24 +5,18 @@ function Navbar() {
   return (
     <>
       <nav className=" bg-black text-white   ">
-        <div className="flex items-center justify-between mx-5 py-2 w-full h-8">
+        <div className="flex items-center justify-between w-full px-2 ">
           <div className="">
             <Link href="/">NASA</Link>
           </div>
-          {/* <ul className="flex space-x-2 ">
-            <li>
-              <Link href="/">Odkaz 1</Link>
+          <ul className="flex gap-2 ">
+            <li className="">
+              <Link href="/satelitepic">Zkus satelit</Link>
             </li>
             <li>
-              <Link href="/">Odkaz 2</Link>
+              <Link href="/">Zkus POAD</Link>
             </li>
-            <li>
-              <Link href="/">Odkaz 3</Link>
-            </li>
-            <li>
-              <Link href="/">Odkaz 4</Link>
-            </li>
-          </ul> */}
+          </ul>
         </div>
       </nav>
     </>

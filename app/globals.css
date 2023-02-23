@@ -93,6 +93,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  overflow-y: hidden;
 }
 .gradient-04 {
   /* position: absolute;

@@ -1,6 +1,15 @@
 import Image from "next/image"
 import PicturesOfADay from "@/components/PicturesOfADay"
 
+async function GetData() {
+  const response = await fetch(
+    "http://api.positionstack.com/v1/forward?access_key=3a9ac87e05d6d8cff6a635b9a1601421&query=1600%20Pennsylvania%20Ave%20NW,%20Washington%20DC",
+    { mode: "no-cors" }
+  )
+  const data = await response.json()
+  console.log(data)
+}
+
 type ImageProps = {
   url: string
   date: string
@@ -44,6 +53,8 @@ export default async function Home() {
     const data = await getDataOfPicture(arrOfDays[i])
     newArr.push(data)
   }
+
+  GetData()
 
   return (
     <>
