@@ -7,7 +7,6 @@ async function GetData() {
     { mode: "no-cors" }
   )
   const data = await response.json()
-  console.log(data)
 }
 
 type ImageProps = {
@@ -44,8 +43,6 @@ async function getDataOfPicture(num: string): Promise<ImageProps> {
   )
   return data.json()
 }
-
-// console.log(yourDate)
 
 export default async function Home() {
   let newArr = []

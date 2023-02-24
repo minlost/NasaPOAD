@@ -5,8 +5,8 @@ import Footer from "../components/Footer"
 type LayoutProps = {
   children: React.ReactNode
 }
-import { Space_Mono } from "@next/font/google"
-const spaceMono = Space_Mono({
+import { Roboto } from "@next/font/google"
+const roboto = Roboto({
   weight: "400",
   subsets: ["latin"],
 })
@@ -26,8 +26,8 @@ export default function RootLayout({ children }: LayoutProps) {
         /> */}
       {/* </head> */}
 
-      <body className={`${spaceMono.className} `}>
-        <div className="bg-gradient-to-r from-blue-400 via-slate-900 to-slate-500 overflow-hidden">
+      <body className={`${roboto.className} `}>
+        <div className="bg-gradient-to-r from-blue-400 via-slate-900 to-slate-500 overflow-hidden 	">
           <Navbar />
 
           {children}

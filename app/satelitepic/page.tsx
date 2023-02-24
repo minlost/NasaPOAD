@@ -6,26 +6,27 @@ import Image from "next/image"
 import Geocode from "react-geocode"
 import GeoTracker from "@/components/GeoTracker"
 import Spinner from "../utilities/Spinner"
+import GeneratedPic from "@/components/GeneratedPic"
+import { CiSatellite1 } from "react-icons/ci"
 
 type ImageProps = {
   url: string
 }
 
 function page() {
-  //   const data = await getDataOfPicture()
+  //***States***
+  const [url, setUrl] = useState("")
+  const [loading, setLoading] = useState(false)
   const [stats, setStats] = useState<{ lat: string; log: string }>({
     lat: "",
     log: "",
   })
-  const [url, setUrl] = useState("")
-  const [loading, setLoading] = useState(false)
-
   const [geoPossition, setGeoPossition] = useState<{
     lat: string
     log: string
     townAdress: string
   }>({ lat: "", log: "", townAdress: "" })
-
+  //***Functions***
   function setIt(e: string) {
     setStats((prevState) => {
       return {
@@ -33,7 +34,6 @@ function page() {
         lat: e,
       }
     })
-    console.log(stats)
   }
   function setIt2(e: string) {
     setStats((prevState) => {
@@ -42,9 +42,8 @@ function page() {
         log: e,
       }
     })
-    console.log(stats)
   }
-
+  //***Fetch NASA satelite image***
   async function generatePic() {
     setLoading(true)
     try {
@@ -53,60 +52,43 @@ function page() {
       )
       const data = await res.json()
       setUrl(data.url)
-      console.log(data.url)
-    } catch (error) {
-      console.log(error)
-    }
-
+    } catch (error) {}
     setLoading(false)
   }
   return (
-    <>
-      <div className="flex justify-center items-center w-[100%] text-center">
-        <h1 className="text-white text-[40px] m-auto top-[10vh] ">
+    <div className="min-h-[87vh]">
+      <div className="flex flex-col justify-center items-center w-[100%] text-center">
+        <h1 className="text-white text-[40px] m-auto top-[10vh] mt-7 ">
           Tvoje město satelitem
         </h1>
+        <CiSatellite1 className="text-[160px] text-center text-white" />
       </div>
 
-      <main className=" text-white w-full h-screen gap-[100px] sm:gap-[15px]  flex sm:flex-col items-center">
-        <div className=" w-[50%] flex flex-col">
-          <div className="flex flex-col justify-center items-center ">
+      <main className="w-full flex justify-evenly text-white items-center sm:flex-col">
+        <div className="max-w-[50vw] min-w-[50vw] sm:max-w-[85%] sm:min-w-[85%] items-center justify-center flex">
+          <div className="max-w-[50%] min-w-[50%] sm:max-w-[85%] sm:min-w-[85%] ">
             <GeoTracker
               setGeoPossition={setGeoPossition}
               geoPossition={geoPossition}
               setStats={setStats}
             />
-            <h2>Zeměpisná šířka</h2>
-            <input
-              className="m-1  text-black"
-              type="text"
-              value={stats.lat}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setIt(e.target.value)
-              }
+            <GeneratedPic
+              setIt={setIt}
+              setIt2={setIt2}
+              stats={stats}
+              generatePic={generatePic}
+              url={url}
+              loading={loading}
             />
-
-            <h2>Zeměpisná délka</h2>
-            <input
-              className="m-1  text-black"
-              type="text"
-              value={stats.log}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setIt2(e.target.value)
-              }
-            />
-            <button className="m-1 bg-black" onClick={generatePic}>
-              Vygeneruj fotku
-            </button>
           </div>
         </div>
-        <div className=" w-[50%] sm:w-[100%] text-center">
+        <div className="flex justify-center items-center flex-col max-w-[50vw] min-w-[50vw]">
           {url === "" ? "Čekám na vaše data" : <EarthPhoto url={url} />}
 
           {loading ? <Spinner /> : null}
         </div>
       </main>
-    </>
+    </div>
   )
 }
 
