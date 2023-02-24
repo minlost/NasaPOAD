@@ -126,3 +126,7 @@ input {
   background-color: white;
   color: black;
 }
+
+button {
+  padding: 15px 25px;
+}
