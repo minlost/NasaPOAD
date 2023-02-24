@@ -5,6 +5,7 @@ import EarthPhoto from "../../components/EarthPhoto"
 import Image from "next/image"
 import Geocode from "react-geocode"
 import GeoTracker from "@/components/GeoTracker"
+import Spinner from "../utilities/spinner"
 
 type ImageProps = {
   url: string
