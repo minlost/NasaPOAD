@@ -9,6 +9,10 @@ type PictureOfADayProps = {
 export default function EarthPhoto({ url }: PictureOfADayProps) {
   const [isLoading, setIsLoading] = useState(true)
 
+  const handleImageLoad = () => {
+    setIsLoading(false)
+  }
+
   return (
     <>
       <div className="w-[50%] sm:w-[100%] sm:flex sm:justify-center sm:items-center sm:flex-col">
@@ -43,7 +47,7 @@ export default function EarthPhoto({ url }: PictureOfADayProps) {
           height="0"
           sizes="100%"
           className="w-full h-auto sm:w-[90%]"
-          // onLoad={() => setIsLoading(false)}
+          onLoad={handleImageLoad}
         />
       </div>
     </>
