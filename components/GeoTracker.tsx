@@ -46,7 +46,7 @@ function GeoTracker({
       <div className="mt-4 flex flex-col">
         <h3 className="">Zvolte vaše město</h3>
         <input
-          className="text-black"
+          className="bg-white text-black	"
           type="text"
           onChange={(e) => setPlace(e.target.value)}
         />

@@ -87,14 +87,14 @@ function page() {
 
             <h2>Zeměpisná délka</h2>
             <input
-              className="m-1  text-black"
+              className="m-1 bg-white text-black"
               type="text"
               value={stats.log}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setIt2(e.target.value)
               }
             />
-            <button className="m-1 bg-black" onClick={generatePic}>
+            <button className="m-1 bg-white text-black" onClick={generatePic}>
               Vygeneruj fotku
             </button>
           </div>
