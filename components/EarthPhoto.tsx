@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 type PictureOfADayProps = {
   url: string
@@ -9,9 +9,13 @@ type PictureOfADayProps = {
 export default function EarthPhoto({ url }: PictureOfADayProps) {
   const [isLoading, setIsLoading] = useState(true)
 
-  const handleImageLoad = () => {
-    setIsLoading(false)
-  }
+  useEffect(() => {
+    const image = new Image()
+    image.onload = () => {
+      setIsLoading(false)
+    }
+    image.src = url
+  }, [url])
 
   return (
     <>
@@ -47,7 +51,6 @@ export default function EarthPhoto({ url }: PictureOfADayProps) {
           height="0"
           sizes="100%"
           className="w-full h-auto sm:w-[90%]"
-          onLoad={handleImageLoad}
         />
       </div>
     </>
