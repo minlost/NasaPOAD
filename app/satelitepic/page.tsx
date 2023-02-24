@@ -82,7 +82,7 @@ function page() {
             />
           </div>
         </div>
-        <div className="flex justify-center items-center flex-col max-w-[50vw] min-w-[50vw]">
+        <div className="flex justify-center items-center flex-col max-w-[50vw] min-w-[50vw] sm:max-w-[85%] sm:min-w-[85%]">
           {url === "" ? "Čekám na vaše data" : <EarthPhoto url={url} />}
 
           {loading ? <Spinner /> : null}

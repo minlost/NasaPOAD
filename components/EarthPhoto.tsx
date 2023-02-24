@@ -25,7 +25,7 @@ export default function EarthPhoto({ url }: PictureOfADayProps) {
           width="0"
           height="0"
           sizes="100%"
-          className="w-full sm:w-[100%]"
+          className="w-full sm:w-[120%]"
           onLoad={handleImageLoad}
         />
       </div>

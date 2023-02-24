@@ -86,14 +86,14 @@ function PicturesOfADay({ arr }: picProps) {
     <>
       <FaPlay
         onClick={() => playMusic()}
-        className={`absolute top-[40px] right-[50px] text-[25px] ${
+        className={`absolute top-[55px] right-[50px] text-[25px] ${
           isPlaying ? "opacity-90" : "opacity-50"
         } text-white cursor-pointer hover:opacity-80`}
       />
 
       <AiOutlinePause
         onClick={() => playMusic()}
-        className={`absolute top-[35px] right-[15px] text-[35px] ${
+        className={`absolute top-[50px] right-[15px] text-[35px] ${
           isPlaying ? "opacity-50" : "opacity-90"
         } text-white cursor-pointer hover:opacity-80`}
       />
