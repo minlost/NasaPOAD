@@ -1,6 +1,5 @@
 "use client"
 
-import { log } from "console"
 import Image from "next/image"
 import React, { useState } from "react"
 
@@ -38,14 +37,13 @@ export default function EarthPhoto({ url }: PictureOfADayProps) {
           </div>
         )}
 
-        <Image
+        <img
           src={url}
           alt="Picture of the day"
           width="0"
           height="0"
           sizes="100%"
           className="w-full h-auto sm:w-[90%]"
-          quality={100}
           onLoad={() => setIsLoading(false)}
         />
       </div>
