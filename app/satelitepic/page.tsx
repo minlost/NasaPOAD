@@ -102,7 +102,7 @@ function page() {
         <div className=" w-[50%] sm:w-[100%] text-center">
           {url === "" ? "Čekám na vaše data" : <EarthPhoto url={url} />}
 
-          {loading ? <h4>"Načítám..."</h4> : null}
+          {loading ? <Spinner /> : null}
         </div>
       </main>
     </>
